@@ -1,3 +1,5 @@
+
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -26,9 +28,7 @@ Route.get('/', async () => {
 
 Route.post("/register", "AuthController.register")
 Route.post("/login", "AuthController.login")
-Route.get("/projetos", "ProjetosController.index")
 Route.group(() => {
-  Route.resource("projetos", 'ProjetosController').apiOnly().except(['index'])
-  Route.resource("faqs", 'FaqsController').apiOnly()
-  Route.resource("curtir", 'ProjetoCurtirsController').apiOnly()
+  Route.resource("messages", 'MessagesController').apiOnly()
+  Route.resource("topics", "TopicsController").apiOnly()
 }).middleware('auth')
